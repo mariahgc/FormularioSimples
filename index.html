@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro Simples</title>
+
+    <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+<div class="container">
+    <div class="bloco1">
+    <h1 class="titulo">Welcome!</h1>
+    <div class="linha"></div>
+    <p class="descricao">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam nulla ab corrupti nam molestiae magnam voluptas accusamus molestias quam sed? Ab autem mollitia enim quo voluptate aliquam quam corrupti aut.</p>
+</div>
+<div class="bloco2">
+    <div class="formulario-container">
+            <h2>Cadastro</h2>
+
+    <form id="formCadastro">
+        <label for="nome">Nome:</label>
+        <input
+            type="text"
+            id="nome"
+            name="nome"
+            required
+            minlength="3"
+            placeholder="Digite seu nome">
+
+        <label for="email">E-mail:</label>
+        <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="exemplo@email.com">
+
+        <label for="idade">Idade:</label>
+        <input
+            type="number"
+            id="idade"
+            name="idade"
+            required
+            min="0"
+            max="120"
+            placeholder="Digite sua idade">
+
+        <button type="submit">Cadastrar</button>
+    </form>
+    </div>
+</div>
+    <div id="resultado"></div>
+</div>
+
+<script>
+    const form = document.getElementById("formCadastro");
+    const resultado = document.getElementById("resultado");
+
+    form.addEventListener("submit", function(event) {
+        event.preventDefault(); // evita recarregar a página
+
+        // Captura dos valores
+        const nome = document.getElementById("nome").value;
+        const email = document.getElementById("email").value;
+        const idade = document.getElementById("idade").value;
+
+        // Exibição dos dados
+        resultado.innerHTML = `
+            <h3>Dados Cadastrados:</h3>
+            <p><strong>Nome:</strong> ${nome}</p>
+            <p><strong>E-mail:</strong> ${email}</p>
+            <p><strong>Idade:</strong> ${idade}</p>
+        `;
+    });
+</script>
+
+</body>
+</html>
